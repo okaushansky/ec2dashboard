@@ -4,8 +4,9 @@
 export const onCreateEC2Instance = /* GraphQL */ `
   subscription OnCreateEC2Instance(
     $filter: ModelSubscriptionEC2InstanceFilterInput
+    $owner: String
   ) {
-    onCreateEC2Instance(filter: $filter) {
+    onCreateEC2Instance(filter: $filter, owner: $owner) {
       id
       name
       description
@@ -16,6 +17,7 @@ export const onCreateEC2Instance = /* GraphQL */ `
       privateIP
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -23,8 +25,9 @@ export const onCreateEC2Instance = /* GraphQL */ `
 export const onUpdateEC2Instance = /* GraphQL */ `
   subscription OnUpdateEC2Instance(
     $filter: ModelSubscriptionEC2InstanceFilterInput
+    $owner: String
   ) {
-    onUpdateEC2Instance(filter: $filter) {
+    onUpdateEC2Instance(filter: $filter, owner: $owner) {
       id
       name
       description
@@ -35,6 +38,7 @@ export const onUpdateEC2Instance = /* GraphQL */ `
       privateIP
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -42,8 +46,9 @@ export const onUpdateEC2Instance = /* GraphQL */ `
 export const onDeleteEC2Instance = /* GraphQL */ `
   subscription OnDeleteEC2Instance(
     $filter: ModelSubscriptionEC2InstanceFilterInput
+    $owner: String
   ) {
-    onDeleteEC2Instance(filter: $filter) {
+    onDeleteEC2Instance(filter: $filter, owner: $owner) {
       id
       name
       description
@@ -54,6 +59,7 @@ export const onDeleteEC2Instance = /* GraphQL */ `
       privateIP
       createdAt
       updatedAt
+      owner
       __typename
     }
   }

@@ -25,6 +25,7 @@ export const getEC2Instances = /* GraphQL */ `
         privateIP
         createdAt
         updatedAt
+        owner
         __typename
       }
       total
@@ -45,6 +46,7 @@ export const getEC2Instance = /* GraphQL */ `
       privateIP
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -67,6 +69,7 @@ export const listEC2Instances = /* GraphQL */ `
         privateIP
         createdAt
         updatedAt
+        owner
         __typename
       }
       nextToken

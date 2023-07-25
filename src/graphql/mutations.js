@@ -17,6 +17,7 @@ export const createEC2Instance = /* GraphQL */ `
       privateIP
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -37,6 +38,7 @@ export const updateEC2Instance = /* GraphQL */ `
       privateIP
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -57,6 +59,7 @@ export const deleteEC2Instance = /* GraphQL */ `
       privateIP
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
