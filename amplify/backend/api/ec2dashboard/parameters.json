@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "ec2dashboard",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authec2dashboard",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

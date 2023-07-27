@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "auth": {
+      "ec2dashboard": [
+        "read"
+      ]
+    },
+    "api": {
+      "ec2dashboard": [
+        "Query"
+      ]
+    },
+    "storage": {
+      "EC2Instance:@model(appsync)": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
