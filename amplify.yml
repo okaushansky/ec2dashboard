@@ -14,3 +14,14 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+backend:
+  phases:
+    build:
+      commands:
+        - amplify push --yes
+  function:
+      FetchEC2Instancies:
+        handler: src/index.py
+        test:
+          runner: jest
+          test: src/test_lambda.py
