@@ -32,13 +32,12 @@ test:
     #     - *enter command*
     test:
       commands:
-        - python -m unittest amplify/backend/function/FetchEC2Instancies/src/test_lambda.py
+        - pwd
+        - python -m unittest src/test_lambda.py
   #   postTest:
   #     commands:
   #       - *enter command*
-  # artifacts:
-  #   files:
-  #       - location
-  #       - location
-  #   configFilePath: *location*
-  #   baseDirectory: *location*
+  artifacts:
+    baseDirectory: amplify/backend/function/FetchEC2Instancies/
+    files:
+      - '**/*'
