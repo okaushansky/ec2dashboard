@@ -12,7 +12,7 @@ US_REGION = "us-east-1"
 EU_REGION = "eu-central-1"
 
 # Import lambda for testing
-from index import handler as lambda_handler
+from .index import handler as lambda_handler
 
 class TestLambdaHandler(unittest.TestCase):
     # @mock_ec2
