@@ -44,11 +44,11 @@
         "ec2dashboard": {}
       },
       "function": {
-        "FetchEC2Instancies": {
+        "ec2dashboard": {},
+        "FetchEC2Instances": {
           "deploymentBucketName": "amplify-ec2dashboard-prod-232316-deployment",
-          "s3Key": "amplify-builds/FetchEC2Instancies-616f6e326d71304c7574-build.zip"
-        },
-        "ec2dashboard": {}
+          "s3Key": "amplify-builds/FetchEC2Instances-3261544a4f6f30414a79-build.zip"
+        }
       },
       "api": {
         "ec2dashboard": {}

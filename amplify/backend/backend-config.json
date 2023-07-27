@@ -60,16 +60,9 @@
     }
   },
   "function": {
-    "FetchEC2Instancies": {
+    "FetchEC2Instances": {
       "build": true,
       "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "ec2dashboard"
-        },
         {
           "attributes": [
             "GraphQLAPIIdOutput",
@@ -78,6 +71,13 @@
           ],
           "category": "api",
           "resourceName": "ec2dashboard"
+        },
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "ec2dashboard"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -85,19 +85,19 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_FetchEC2Instancies_deploymentBucketName": {
+    "AMPLIFY_function_FetchEC2Instances_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "FetchEC2Instancies"
+          "resourceName": "FetchEC2Instances"
         }
       ]
     },
-    "AMPLIFY_function_FetchEC2Instancies_s3Key": {
+    "AMPLIFY_function_FetchEC2Instances_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "FetchEC2Instancies"
+          "resourceName": "FetchEC2Instances"
         }
       ]
     }
