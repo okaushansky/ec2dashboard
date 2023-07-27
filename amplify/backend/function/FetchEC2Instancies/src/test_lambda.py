@@ -6,13 +6,14 @@ from unittest.mock import MagicMock, patch
 from moto import mock_ec2
 from moto.core import DEFAULT_ACCOUNT_ID as ACCOUNT_ID
 
+# Import lambda for testing
+from index import handler as lambda_handler
+
 ## TEST DATA
 EXAMPLE_AMI_ID = "ami-12c6146b"
 US_REGION = "us-east-1"
 EU_REGION = "eu-central-1"
 
-# Import lambda for testing
-from .index import handler as lambda_handler
 
 class TestLambdaHandler(unittest.TestCase):
     # @mock_ec2
