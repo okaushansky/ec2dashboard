@@ -33,7 +33,9 @@ test:
     test:
       commands:
         - pwd
-        - pip install boto3 moto
+        - python3 --version  # Check the Python version
+        - python3 -m pip install boto3 moto
+        - python3 -m pip list
         - cd amplify/backend/function/FetchEC2Instancies/src/
         - python3 -m unittest test_lambda.py
   #   postTest:
