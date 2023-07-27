@@ -15,10 +15,10 @@ frontend:
     paths:
       - node_modules/**/*
 backend:
-  phases:
-    build:
-      commands:
-        - amplify push --yes
+  # phases:
+  #   build:
+  #     commands:
+  #       - amplify push --yes
   function:
       FetchEC2Instancies:
         handler: src/index.py
