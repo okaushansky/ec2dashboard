@@ -25,3 +25,20 @@ backend:
         test:
           runner: jest
           test: src/test_lambda.py
+test:
+  phases:
+    # preTest:
+    #   commands:
+    #     - *enter command*
+    test:
+      commands:
+        - python -m unittest amplify/backend/function/FetchEC2Instancies/src/test_lambda.py
+  #   postTest:
+  #     commands:
+  #       - *enter command*
+  # artifacts:
+  #   files:
+  #       - location
+  #       - location
+  #   configFilePath: *location*
+  #   baseDirectory: *location*
