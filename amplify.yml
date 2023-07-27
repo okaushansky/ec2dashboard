@@ -34,7 +34,7 @@ test:
       commands:
         - pwd
         - ls -la amplify/backend/function/FetchEC2Instancies/
-        - ls -la amplify/backend/function/FetchEC2Instancies/dist/
+        - ls -la amplify/backend/function/FetchEC2Instancies/src/
         - python3 -m unittest src/test_lambda.py
   #   postTest:
   #     commands:
