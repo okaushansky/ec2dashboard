@@ -3,7 +3,7 @@
 <h1>EC2 Dashboard</h1>
 EC2 Dashboard is a simple web application hosted on AWS Amplify, allowing external users to view all active EC2 instances in the AWS infrastructure.
 
-[EC2 Dashboard](https://release.d1x56yi7mlda3z.amplifyapp.com/)
+[<b>EC2 Dashboard Application</b>](https://release.d1x56yi7mlda3z.amplifyapp.com/)
 
 <h4>Frontend</h4>
 Users need to log in with their correct username and password. 
@@ -31,11 +31,12 @@ The application lifecycle is managed by the AWS Amplify Pipeline, which includes
 Amplify build file - amplify.yml.
 
 The EC2 Dashboard repository have 2 branches: 
- - <b>main</b> for staging environment ([EC2 Dashboard staging](https://main.d1x56yi7mlda3z.amplifyapp.com/))
- - <b>release</b> for production environment ([EC2 Dashboard production](https://release.d1x56yi7mlda3z.amplifyapp.com/))
+ - <b>main</b> for staging environment ([EC2 Dashboard Staging](https://main.d1x56yi7mlda3z.amplifyapp.com/))
+ - <b>release</b> for production environment ([EC2 Dashboard Production](https://release.d1x56yi7mlda3z.amplifyapp.com/))
 
 <h4>Unit Tests</h4>
 Unit tests for the FetchEC2Instances Lambda Function are located in the amplify/backend/function/FetchEC2Instances/src/ directory. You can run these tests both locally and as part of the pipeline:
     python3 -m unittest test_lambda.py
+
 
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/username/repository)
