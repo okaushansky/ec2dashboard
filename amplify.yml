@@ -38,11 +38,12 @@ test:
         - python3 -m pip list --user
         - cd amplify/backend/function/FetchEC2Instances/src/
         - pwd
-        - python3 -m unittest test_lambda.py
+        - rm -rfv ../logs/ && mkdir -p ../logs/
+        - python3 -m unittest test_lambda.py | tee ../logs/test_lambda.logs
   #   postTest:
   #     commands:
   #       - *enter command*
   artifacts:
-    baseDirectory: amplify/backend/function/FetchEC2Instancies/src/
+    baseDirectory: amplify/backend/function/FetchEC2Instances/logs/
     files:
       - '**/*'

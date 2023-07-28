@@ -1,7 +1,8 @@
-# import json
+#!/usr/bin/env python
+ 
 import boto3
 import unittest
-from unittest.mock import MagicMock, patch
+# from unittest.mock import MagicMock, patch
 
 from moto import mock_ec2
 from moto.core import DEFAULT_ACCOUNT_ID as ACCOUNT_ID
@@ -16,15 +17,10 @@ EU_REGION = "eu-central-1"
 
 
 class TestLambdaHandler(unittest.TestCase):
-    # @mock_ec2
-    # def __init__(self, *args, **kwargs):
-    #     self.client_us = boto3.client("ec2", region_name="us-east-1")
-    #     self.client_eu = boto3.client("ec2", region_name="eu-central-1")
-    #     super(TestLambdaHandler, self).__init__(*args, **kwargs)
-
     def setUp(self):
-            self.event = {}
-            self.context = {}
+        self.event = {}
+        self.context = {}
+       
 
     def runInstance(self, region, name, **kwargs):
         client = boto3.client("ec2", region_name=region)
@@ -38,11 +34,6 @@ class TestLambdaHandler(unittest.TestCase):
                                          **kwargs)
         return instances
 
-    # def createInstance(self, region, number):
-    #     # Create a new EC2 instance
-    #     ec2_resource = boto3.resource('ec2', region_name=region)
-    #     instances = ec2_resource.create_instances(ImageId=EXAMPLE_AMI_ID, State=stopped, MinCount=1, MaxCount=number)
-    #     return instances
 
     def createInstances(self, region, number, stopped=False):
         ec2_resource = boto3.resource('ec2', region_name=region)
@@ -133,8 +124,6 @@ class TestLambdaHandler(unittest.TestCase):
         response = lambda_handler(self.event, self.context)
         self.assertEqual(len(response['items']), 5)
         self.assertEqual(response['total'], 40)
-
-
 
     
     # @patch('boto3.client')

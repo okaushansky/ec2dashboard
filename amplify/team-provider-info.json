@@ -47,7 +47,7 @@
         "ec2dashboard": {},
         "FetchEC2Instances": {
           "deploymentBucketName": "amplify-ec2dashboard-prod-232316-deployment",
-          "s3Key": "amplify-builds/FetchEC2Instances-3261544a4f6f30414a79-build.zip"
+          "s3Key": "amplify-builds/FetchEC2Instances-6536324d4d4331447747-build.zip"
         }
       },
       "api": {
