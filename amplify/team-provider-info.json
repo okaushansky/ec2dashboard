@@ -18,7 +18,7 @@
       "function": {
         "FetchEC2Instancies": {
           "deploymentBucketName": "amplify-amplifyd370af4a37fe4-staging-195056-deployment",
-          "s3Key": "amplify-builds/FetchEC2Instancies-616f6e326d71304c7574-build.zip"
+          "s3Key": "amplify-builds/FetchEC2Instancies-68597341555878414b6b-build.zip"
         },
         "ec2dashboard": {}
       },
