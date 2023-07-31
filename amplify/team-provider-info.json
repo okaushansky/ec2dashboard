@@ -54,5 +54,33 @@
         "ec2dashboard": {}
       }
     }
+  },
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ec2dashboard-test-13913-authRole",
+      "UnauthRoleArn": "arn:aws:iam::788996665978:role/amplify-ec2dashboard-test-13913-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::788996665978:role/amplify-ec2dashboard-test-13913-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-ec2dashboard-test-13913-deployment",
+      "UnauthRoleName": "amplify-ec2dashboard-test-13913-unauthRole",
+      "StackName": "amplify-ec2dashboard-test-13913",
+      "StackId": "arn:aws:cloudformation:us-east-1:788996665978:stack/amplify-ec2dashboard-test-13913/3aac0cf0-2f2a-11ee-ac0a-0a131fc54391",
+      "AmplifyAppId": "d2in3txwic6cq8"
+    },
+    "categories": {
+      "auth": {
+        "ec2dashboard": {}
+      },
+      "function": {
+        "FetchEC2Instances": {
+          "deploymentBucketName": "amplify-ec2dashboard-test-13913-deployment",
+          "s3Key": "amplify-builds/FetchEC2Instances-4e5849776b44564d2f61-build.zip"
+        },
+        "ec2dashboard": {}
+      },
+      "api": {
+        "ec2dashboard": {}
+      }
+    }
   }
 }
