@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/user/bin/env /bin/bash
 
 set -e
 IFS='|'
 
+SCRIPT_SOURCE=${BASH_SOURCE[0]}
 PARAMS_SRC=${1:-deploy_params}
 
 if [[ -f ${PARAMS_SRC} ]]; then
@@ -12,7 +13,7 @@ else
     exit 1
 fi
 
-
+# Define parameters for silent AWS Amplify project initialising
 REACTCONFIG="{\
 \"SourceDir\":\"src\",\
 \"DistributionDir\":\"dist\",\
@@ -45,8 +46,18 @@ PROVIDERS="{\
 }"
 
 
+# Init AWS Amplify project
 amplify init \
 --amplify $AMPLIFY \
 --frontend $FRONTEND \
 --providers $PROVIDERS \
 --yes
+
+
+# Install and activate Python virtual environment to avoid Lambda compilation errors
+cd ${SCRIPT_SOURCE}/amplify/backend/function/FetchEC2Instances/
+python3 -m venv venv
+source venv/bin/activate
+
+# Provision cloud resources with the latest local changes 
+amplify push --yes
