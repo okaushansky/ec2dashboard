@@ -1,6 +1,6 @@
 #!/usr/bin/env /bin/bash
 
-set -eux
+set -eu
 IFS='|'
 
 # Get the absolute path of the running script
@@ -16,6 +16,8 @@ else
     echo "Parameters definition file ${PARAMS_SRC} not found. Please specify the correct one"
     exit 1
 fi
+
+echo " ===== Deploy ${PROGECT_NAME} to region ${REGION} and environment ${ENV_NAME} ====="
 
 # Define parameters for silent AWS Amplify project initialising
 REACTCONFIG="{\
@@ -50,10 +52,9 @@ PROVIDERS="{\
 }"
 
 
+echo "*** Initialize Amplify project"
+
 # Initialize Amplify project
-
-
-# Initialize Amplify project and capture the output
 amplify init \
 --amplify ${AMPLIFY} \
 --frontend ${FRONTEND} \
@@ -63,6 +64,8 @@ amplify init \
 
 # Extract the App ID using grep and awk
 app_id=$(cat ${SCRIPT_DIR}/amplify/team-provider-info.json | jq .${ENV_NAME}.awscloudformation.AmplifyAppId)
+
+echo "Created project with App ID '${app_id// }'"
 
 # Check if the App ID is not empty
 if [[ -z ${app_id// } ]]; then
@@ -86,7 +89,9 @@ fi
 # EOF
 # )
 
-echo "*** Configure hosting"
+echo -e "*** Configure hosting from repository ${GITHUB_REPO_URL} \nPlease select the defaults for the following prompts: \
+Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)\n \
+Manual Deployment"
 
 # # Save the JSON content to a file
 # echo "${json_content}" > ${SCRIPT_DIR}/hosting-config.json
@@ -120,7 +125,10 @@ amplify hosting add \
 #   --appId ${app_id} \
 #   --region ${REGION}
 
+echo "*** Provision cloud resources"
+
 # Provision cloud resources with the latest local changes 
 amplify push --yes
 
+echo "*** Manual deploy"
 amplify publish --yes

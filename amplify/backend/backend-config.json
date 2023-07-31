@@ -59,6 +59,7 @@
       "service": "Cognito"
     }
   },
+  "custom": {},
   "function": {
     "FetchEC2Instances": {
       "build": true,
@@ -84,6 +85,13 @@
       "service": "Lambda"
     }
   },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
   "parameters": {
     "AMPLIFY_function_FetchEC2Instances_deploymentBucketName": {
       "usedBy": [
@@ -98,6 +106,22 @@
         {
           "category": "function",
           "resourceName": "FetchEC2Instances"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
         }
       ]
     }
