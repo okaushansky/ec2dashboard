@@ -4,4 +4,5 @@ ACCESS_KEY_ID=
 SECRET_ACCESS_KEY=
 REGION=us-east-1
 PROGECT_NAME=ec2dashboard
-ENV_NAME=testing
+ENV_NAME=dev
+GITHUB_REPO_URL=git@github.com:okaushansky/ec2dashboard.git
