@@ -15,10 +15,16 @@ frontend:
     paths:
       - node_modules/**/*
 backend:
-  # phases:
-  #   build:
-  #     commands:
-  #       - amplify push --yes
+  phases:
+    preBuild:
+      commands:
+        - pwd
+        - cd amplify/backend/function/FetchEC2Instances/
+        - python3 -m venv venv
+        - source venv/bin/activate
+    build:
+      commands:
+        - amplify push --yes
   function:
       FetchEC2Instancies:
         handler: src/index.py
