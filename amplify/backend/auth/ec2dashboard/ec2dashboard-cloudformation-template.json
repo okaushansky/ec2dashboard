@@ -139,6 +139,22 @@
     }
   },
   "Resources": {
+    "UserPoolUserUser1": {
+      "Type": "AWS::Cognito::UserPoolUser",
+      "Properties": {
+        "UserAttributes": {
+          "email": "user1@gmail.com",
+          "email_verified": "true"
+        },
+        "Username": "user1",
+        "UserPoolId": {
+          "Ref": "UserPoolGroupUsers"
+        }
+      },
+      "DependsOn": [
+        "UserPool"
+      ]
+    },
     "UserPool": {
       "Type": "AWS::Cognito::UserPool",
       "Properties": {

@@ -51,6 +51,6 @@ td {
     cursor: pointer;
 }
 
-.pagination-btn:disabled {
+/* .pagination-btn:disabled {
     cursor: not-allowed;
-}
+} */

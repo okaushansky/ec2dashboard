@@ -1,4 +1,5 @@
 # import json
+import sys
 import boto3
 import unittest
 from unittest.mock import MagicMock, patch
@@ -6,8 +7,11 @@ from unittest.mock import MagicMock, patch
 from moto import mock_ec2
 from moto.core import DEFAULT_ACCOUNT_ID as ACCOUNT_ID
 
+# setting path
+sys.path.append('../src')
+
 # Import lambda for testing
-from index import handler as lambda_handler
+from src.index import handler as lambda_handler
 
 ## TEST DATA
 EXAMPLE_AMI_ID = "ami-12c6146b"
