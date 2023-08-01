@@ -31,10 +31,10 @@ backend:
         - popd
         # - python3 -m venv venv
         # - source venv/bin/activate
-    build:
-      commands:
-        - echo "Running Backend build"
-        - amplify push --yes
+    # build:
+    #   commands:
+    #     - echo "Running Backend build"
+    #     - amplify push --yes
 #   function:
 #       FetchEC2Instancies:
 #         handler: src/index.py
