@@ -200,6 +200,30 @@
         }
       }
     },
+    "User1UserPoolUser": {
+      "Type": "AWS::Cognito::UserPoolUser",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "UserPool"
+        },
+        "Username": "user1",
+        "DesiredDeliveryMediums": [
+          "EMAIL"
+        ],
+        "ForceAliasCreation": false,
+        "UserAttributes": [
+          {
+            "Name": "email_verified",
+            "Value": "user1@gmail.com"
+          },
+          {
+            "Name": "email",
+            "Value": "true"
+          }
+        ],
+        "TemporaryPassword": "pass11"
+      }
+    },
     "User2UserPoolUser": {
       "Type": "AWS::Cognito::UserPoolUser",
       "Properties": {

@@ -58,30 +58,6 @@
     }
   },
   "Resources": {
-    "User1UserPoolUser": {
-      "Type": "AWS::Cognito::UserPoolUser",
-      "Properties": {
-        "UserPoolId": {
-          "Ref": "AuthCognitoUserPoolId"
-        },
-        "Username": "user1",
-        "DesiredDeliveryMediums": [
-          "EMAIL"
-        ],
-        "ForceAliasCreation": false,
-        "UserAttributes": [
-          {
-            "Name": "email_verified",
-            "Value": "user1@gmail.com"
-          },
-          {
-            "Name": "email",
-            "Value": "true"
-          }
-        ],
-        "TemporaryPassword": "pass11"
-      }
-    },
     "GraphQLAPI": {
       "Type": "AWS::AppSync::GraphQLApi",
       "Properties": {

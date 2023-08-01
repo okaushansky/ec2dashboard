@@ -64,6 +64,6 @@ test:
   #     commands:
   #       - *enter command*
   artifacts:
-    baseDirectory: amplify/backend/function/FetchEC2Instances/logs/
+    baseDirectory: amplify/backend/function/FetchEC2Instances/src/test/logs/
     files:
       - '**/*'
