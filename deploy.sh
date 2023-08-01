@@ -1,6 +1,6 @@
 #!/usr/bin/env /bin/bash
 
-set -eu
+set -euo pipefail
 IFS='|'
 
 # Get the absolute path of the running script
@@ -64,47 +64,24 @@ amplify init \
 
 # Extract the App ID using grep and awk
 app_id=$(cat ${SCRIPT_DIR}/amplify/team-provider-info.json | jq .${ENV_NAME}.awscloudformation.AmplifyAppId)
-
 echo "Created project with App ID '${app_id// }'"
-
 # Check if the App ID is not empty
 if [[ -z ${app_id// } ]]; then
     echo "Failed to get App ID. Amplify project initialization might have failed."
     exit 1
 fi
 
-# # Install and activate Python virtual environment to avoid Lambda compilation errors
-# echo "${SCRIPT_DIR}/amplify/backend/function/FetchEC2Instances/"
-# cd ${SCRIPT_DIR}/amplify/backend/function/FetchEC2Instances/
-# python3 -m venv venv
-# source venv/bin/activate
+# Needed to create aws-exports.js
+amplify configure project \
+--amplify $AMPLIFY \
+--frontend $FRONTEND \
+--providers $PROVIDERS \
+--yes
 
-# # Create the JSON content with the specified values
-# json_content=$(cat <<EOF
-# {
-#   "envName": "${ENV_NAME}",
-#   "appId": "${app_id// }",
-#   "default": true
-# }
-# EOF
-# )
 
-echo -e "*** Configure hosting from repository ${GITHUB_REPO_URL} \nPlease select the defaults for the following prompts: \
-Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)\n \
-Manual Deployment"
-
-# # Save the JSON content to a file
-# echo "${json_content}" > ${SCRIPT_DIR}/hosting-config.json
-# echo "JSON configuration file '${SCRIPT_DIR}/hosting-config.json' has been created."
-
-# # Import the hosting configuration
-# amplify env import --config ${SCRIPT_DIR}/hosting-config.json
-
-# # Checkout the new environment
-# amplify env checkout ${ENV_NAME}
-
-# # Configure the hosting settings (optional)
-# amplify hosting configure
+echo -e "*** Configure hosting from repository ${GITHUB_REPO_URL} \nPlease select the defaults for the following prompts:\n \
+- Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)\n \
+- Manual Deployment"
 
 # Add hosting category to the Amplify project
 amplify hosting add \
@@ -120,15 +97,11 @@ amplify hosting add \
 #   --region ${REGION} \
 #   --repository ${GITHUB_REPO_URL}
 
-# Deploy the hosting environment
-# amplify hosting publish \
-#   --appId ${app_id} \
-#   --region ${REGION}
-
 echo "*** Provision cloud resources"
 
 # Provision cloud resources with the latest local changes 
 amplify push --yes
 
 echo "*** Manual deploy"
+yarn install --frozen-lockfile
 amplify publish --yes
