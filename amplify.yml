@@ -31,10 +31,10 @@ backend:
         - popd
         # - python3 -m venv venv
         # - source venv/bin/activate
-    # build:
-    #   commands:
-    #     - echo "Running Backend build"
-    #     - amplify push --yes
+    build:
+      commands:
+        - echo "Running Backend build"
+        - amplify push --yes
 #   function:
 #       FetchEC2Instancies:
 #         handler: src/index.py
@@ -50,14 +50,14 @@ test:
       commands:
         - export BASE_PATH=$(pwd)
         - echo "Base path = ${BASE_PATH}"
-        - cd amplify/backend/function/FetchEC2Instances/
+        - cd amplify/backend/function/FetchEC2Instances/src
         - python3 --version  # Check the Python version
         - python3 -m pip install boto3 moto --user
         - python3 -m pip list --user
         - pwd
-        - rm -rfv ./logs/ && mkdir -p ./logs/
-        - python3 -m unittest ./src/test_lambda.py | tee ./logs/test_lambda.logs
-        - cd ${BASE_PATH}
+        - rm -rfv ../logs/ && mkdir -p ../logs/
+        - python3 -m unittest test_lambda.py | tee ../logs/test_lambda.logs
+        # - cd ${BASE_PATH}
   #   postTest:
   #     commands:
   #       - *enter command*
