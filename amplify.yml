@@ -4,7 +4,7 @@ frontend:
     preBuild:
       commands:
         - echo "Running Frontend preBuild"
-        - yarn install react-scripts
+        - yarn add react-scripts
         - yarn install --frozen-lockfile
     build:
       commands:
@@ -27,7 +27,6 @@ backend:
         - python3 --version  # Check the Python version
         - python3 -m pip install boto3 moto --user
         - python3 -m pip list --user
-        - cd amplify/backend/function/FetchEC2Instances/src/
         - pwd
         # - python3 -m venv venv
         # - source venv/bin/activate
@@ -53,7 +52,6 @@ test:
         - python3 --version  # Check the Python version
         - python3 -m pip install boto3 moto --user
         - python3 -m pip list --user
-        - cd amplify/backend/function/FetchEC2Instances/src/
         - pwd
         - rm -rfv ./logs/ && mkdir -p ./logs/
         - python3 -m unittest ./src/test_lambda.py | tee ./logs/test_lambda.logs
