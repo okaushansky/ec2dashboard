@@ -19,6 +19,10 @@ fi
 
 echo " ===== Deploy ${PROGECT_NAME} to region ${REGION} and environment ${ENV_NAME} ====="
 
+echo "*** Install prerequsites"
+sudo npm install -g yarn
+sudo yarn global add @aws-amplify/cli
+
 # Define parameters for silent AWS Amplify project initialising
 REACTCONFIG="{\
 \"SourceDir\":\"src\",\
@@ -102,6 +106,6 @@ echo "*** Provision cloud resources"
 # Provision cloud resources with the latest local changes 
 amplify push --yes
 
-echo "*** Manual deploy"
-yarn install --frozen-lockfile
-amplify publish --yes
+# echo "*** Manual deploy"
+# yarn install --frozen-lockfile
+# amplify publish --yes
