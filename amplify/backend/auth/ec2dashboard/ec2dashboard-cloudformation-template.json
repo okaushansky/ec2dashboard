@@ -200,13 +200,13 @@
         }
       }
     },
-    "User1UserPoolUser": {
+    "User2UserPoolUser": {
       "Type": "AWS::Cognito::UserPoolUser",
       "Properties": {
         "UserPoolId": {
           "Ref": "UserPool"
         },
-        "Username": "user1",
+        "Username": "user2",
         "DesiredDeliveryMediums": [
           "EMAIL"
         ],
@@ -214,7 +214,7 @@
         "UserAttributes": [
           {
             "Name": "email_verified",
-            "Value": "user1@gmail.com"
+            "Value": "user2@gmail.com"
           },
           {
             "Name": "email",
