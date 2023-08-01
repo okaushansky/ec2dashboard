@@ -44,14 +44,45 @@ Before you deploy, you must have the following in place:
 * [Git](https://github.com/git-guides/install-git))
 * [Node 16 or greater](https://nodejs.org/en/download/)
 * [Python version 3.9](https://www.python.org/downloads/)
-* [Amplify CLI installed and configured](https://aws-amplify.github.io/docs/cli-toolchain/quickstart#quickstart)
+* [Amplify CLI](https://aws-amplify.github.io/docs/cli-toolchain/quickstart#quickstart)
 
 ## Deploy the App
 
+### Manual Deployment 
+EC2 Dashboard manual deployment requires:
+
+* Linux-based system
+* Local copy of the GitHub repository
+```sh
+~ git clone https://github.com/okaushansky/ec2dashboard.git
+~ cd ec2dashboard
+```
+
+In the root folder, there is a <b>deploy_params</b> file, which serves as an example of how to set up deployment parameters. The following parameters should be specified in this file:
+
+* ACCESS_KEY_ID: AWS Access Key Id
+* SECRET_ACCESS_KEY: AWS Secret Key Id
+* REGION: Deployment region
+* PROJECT_NAME: Deploy project name
+* ENV_NAME: Deploy environment
+
+To initiate the manual deployment, run the <b>deploy.sh</b> script from the root folder and provide the path to the configuration file as a parameter:
+```sh
+~ ./deploy.sh deploy_params
+```
+
+When prompted, select the defaults for the following options:
+```sh
+? Select the plugin module to execute: Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)
+? Choose a type: Manual Deployment
+```
+
+### Amplify Automatic Deploy 
 To automatically deploy the app, click the button below 👇
 
-[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/okaushansky/ec2dashboard.git)
+[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/okaushansky/ec2dashboard)
 
-*Note: if you don't have an Amplify Service role, you will need to create one.*
+*Note: if you don't have an [Amplify Service role](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html), you will need to create one.* 
+
 
 

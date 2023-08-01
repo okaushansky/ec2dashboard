@@ -24,12 +24,63 @@
     "S3DeploymentRootKey": {
       "Type": "String",
       "Description": "An S3 key relative to the S3DeploymentBucket that points to the root\nof the deployment directory."
+    },
+    "AuthCognitoUserPoolId": {
+      "Type": "String"
     }
   },
   "Resources": {
     "EmptyResource": {
       "Type": "Custom::EmptyResource",
       "Condition": "AlwaysFalse"
+    },
+    "User1UserPoolUser": {
+      "Type": "AWS::Cognito::UserPoolUser",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "AuthCognitoUserPoolId"
+        },
+        "Username": "user1",
+        "DesiredDeliveryMediums": [
+          "EMAIL"
+        ],
+        "ForceAliasCreation": false,
+        "UserAttributes": [
+          {
+            "Name": "email_verified",
+            "Value": "user1@gmail.com"
+          },
+          {
+            "Name": "email",
+            "Value": "true"
+          }
+        ],
+        "TemporaryPassword": "pass11"
+      }
+    },
+    "User2UserPoolUser": {
+      "Type": "AWS::Cognito::UserPoolUser",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "AuthCognitoUserPoolId"
+        },
+        "Username": "user2",
+        "DesiredDeliveryMediums": [
+          "EMAIL"
+        ],
+        "ForceAliasCreation": false,
+        "UserAttributes": [
+          {
+            "Name": "email_verified",
+            "Value": "user2@gmail.com"
+          },
+          {
+            "Name": "email",
+            "Value": "true"
+          }
+        ],
+        "TemporaryPassword": "pass11"
+      }
     }
   },
   "Conditions": {

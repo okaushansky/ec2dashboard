@@ -17,7 +17,7 @@ else
     exit 1
 fi
 
-echo " ===== Deploy ${PROGECT_NAME} to region ${REGION} and environment ${ENV_NAME} ====="
+echo " ===== Deploy ${PROJECT_NAME} to region ${REGION} and environment ${ENV_NAME} ====="
 
 echo "*** Install prerequsites"
 sudo npm install -g yarn
@@ -40,7 +40,7 @@ AWSCLOUDFORMATIONCONFIG="{\
 }"
 
 AMPLIFY="{\
-\"projectName\":\"${PROGECT_NAME}\",\
+\"projectName\":\"${PROJECT_NAME}\",\
 \"envName\":\"${ENV_NAME}\",\
 \"defaultEditor\":\"code\"\
 }"
