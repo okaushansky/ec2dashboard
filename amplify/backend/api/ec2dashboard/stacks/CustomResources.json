@@ -34,6 +34,24 @@
       "Type": "Custom::EmptyResource",
       "Condition": "AlwaysFalse"
     },
+    "AdminsUserPoolGroup": {
+      "Type": "AWS::Cognito::UserPoolGroup",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "AuthCognitoUserPoolId"
+        },
+        "GroupName": "Admins"
+      }
+    },
+    "UsersUserPoolGroup": {
+      "Type": "AWS::Cognito::UserPoolGroup",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "AuthCognitoUserPoolId"
+        },
+        "GroupName": "Users"
+      }
+    },
     "User1UserPoolUser": {
       "Type": "AWS::Cognito::UserPoolUser",
       "Properties": {
@@ -48,14 +66,13 @@
         "UserAttributes": [
           {
             "Name": "email_verified",
-            "Value": "user1@gmail.com"
+            "Value": true
           },
           {
             "Name": "email",
-            "Value": "true"
+            "Value": "user1@gmail.com"
           }
-        ],
-        "TemporaryPassword": "pass11"
+        ]
       }
     },
     "User2UserPoolUser": {
@@ -72,15 +89,65 @@
         "UserAttributes": [
           {
             "Name": "email_verified",
-            "Value": "user2@gmail.com"
+            "Value": true
           },
           {
             "Name": "email",
-            "Value": "true"
+            "Value": "user2@gmail.com"
           }
-        ],
-        "TemporaryPassword": "pass11"
+        ]
       }
+    },
+    "Admin1UserPoolUser": {
+      "Type": "AWS::Cognito::UserPoolUser",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "AuthCognitoUserPoolId"
+        },
+        "Username": "admin1",
+        "DesiredDeliveryMediums": [
+          "EMAIL"
+        ],
+        "ForceAliasCreation": false,
+        "UserAttributes": [
+          {
+            "Name": "email_verified",
+            "Value": true
+          },
+          {
+            "Name": "email",
+            "Value": "admin1@gmail.com"
+          }
+        ]
+      }
+    },
+    "User1UserPoolUserToGroupAttachment": {
+      "Type": "AWS::Cognito::UserPoolUserToGroupAttachment",
+      "Properties": {
+        "GroupName": "Users",
+        "Username": "user1",
+        "UserPoolId": {
+          "Ref": "AuthCognitoUserPoolId"
+        }
+      },
+      "DependsOn": [
+        "User1UserPoolUser",
+        "UsersUserPoolGroup"
+      ]
+    },
+    "Admin1UserPoolUserToGroupAttachment": {
+      "Type": "AWS::Cognito::UserPoolUserToGroupAttachment",
+      "Properties": {
+        "GroupName": "Admins",
+        "Username": "admin1",
+        "UserPoolId": {
+          "Ref": "AuthCognitoUserPoolId"
+        }
+      },
+      "DependsOn": [
+        "Admin1UserPoolUser",
+        "AdminsUserPoolGroup"
+      ]
     }
   },
   "Conditions": {
@@ -97,7 +164,10 @@
       ]
     },
     "AlwaysFalse": {
-      "Fn::Equals": ["true", "false"]
+      "Fn::Equals": [
+        "true",
+        "false"
+      ]
     }
   },
   "Outputs": {

@@ -41,7 +41,7 @@ Unit tests for the FetchEC2Instances Lambda Function are located in the amplify/
 Before you deploy, you must have the following in place:
 
 * [AWS Account](https://aws.amazon.com/account/)
-* [Git](https://github.com/git-guides/install-git))
+* [Git](https://github.com/git-guides/install-git)
 * [Node 16 or greater](https://nodejs.org/en/download/)
 * [Python version 3.9](https://www.python.org/downloads/)
 * [Amplify CLI](https://aws-amplify.github.io/docs/cli-toolchain/quickstart#quickstart)
