@@ -8,10 +8,10 @@ from moto import mock_ec2
 from moto.core import DEFAULT_ACCOUNT_ID as ACCOUNT_ID
 
 # setting path
-sys.path.append('../src')
+sys.path.append('../')
 
 # Import lambda for testing
-from src.index import handler as lambda_handler
+from index import handler as lambda_handler
 
 ## TEST DATA
 EXAMPLE_AMI_ID = "ami-12c6146b"
