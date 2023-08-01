@@ -18,20 +18,19 @@ frontend:
     paths:
       - node_modules/**/*
 backend:
-  function:
-    - name: FetchEC2Instances
-      preBuild:
-        commands:
-          - echo "Running Backend preBuild"
-          - pwd
-          - pushd amplify/backend/function/FetchEC2Instances/
-          - python3 --version  # Check the Python version
-          - python3 -m pip install boto3 moto --user
-          - python3 -m pip list --user
-          - pwd
-          - popd
-          # - python3 -m venv venv
-          # - source venv/bin/activate
+  phases:
+    preBuild:
+      commands:
+        - echo "Running Backend preBuild"
+        - pwd
+        - pushd amplify/backend/function/FetchEC2Instances/
+        - python3 --version  # Check the Python version
+        - python3 -m pip install boto3 moto --user
+        - python3 -m pip list --user
+        - pwd
+        - popd
+        # - python3 -m venv venv
+        # - source venv/bin/activate
     # build:
     #   commands:
     #     - echo "Running Backend build"
