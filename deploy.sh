@@ -22,9 +22,9 @@ echo " ===== Deploy ${PROGECT_NAME} to region ${REGION} and environment ${ENV_NA
 # Define parameters for silent AWS Amplify project initialising
 REACTCONFIG="{\
 \"SourceDir\":\"src\",\
-\"DistributionDir\":\"dist\",\
-\"BuildCommand\":\"yarn run-script build\",\
-\"StartCommand\":\"yarn run-script start\"\
+\"DistributionDir\":\"build\",\
+\"BuildCommand\":\"yarn run build\",\
+\"StartCommand\":\"yarn run start\"\
 }"
 
 AWSCLOUDFORMATIONCONFIG="{\
