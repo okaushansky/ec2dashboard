@@ -77,6 +77,17 @@ When prompted, select the defaults for the following options:
 ? Choose a type: Manual Deployment
 ```
 
+To create application users, follow these steps:
+* Open the AWS Amplify Studio for the deployed application backend.
+* Navigate to the <b>User Management</b> menu.
+* Here, you can create and manage application users easily.
+
+Alternatively, you can use the Cognito console to add users to your application:
+* Go to the Cognito console.
+* From the list of user pools, select the user pool with the name <PROJECT_NAME>-<ENV_NAME>.
+* Within the selected user pool, you can add and manage users for your application.
+
+
 ### Amplify Automatic Deploy 
 To automatically deploy the app, click the button below 👇
 
